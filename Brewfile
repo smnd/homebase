@@ -10,7 +10,9 @@ cask_args appdir: "/Applications"
 # ---------- CLI essentials 
 brew "git"
 brew "stow"          # manage dotfiles via symlinks
-brew "zsh"
+brew "rsync"
+brew "gh"
+# brew "zsh"
 # brew "coreutils"
 # brew "findutils"
 # brew "gnu-sed"
@@ -23,7 +25,6 @@ brew "zsh"
 # brew "eza"           # ls alternative
 # brew "tree"
 # brew "wget"
-brew "rsync"         # newer than macOS
 # brew "gnupg"
 
 # ---------- Desktop apps (casks) 
