@@ -1,0 +1,87 @@
+# --- Homebrew (Apple Silicon) ---
+if command -v brew >/dev/null; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# --- Completions (fast & cached) ---
+autoload -Uz compinit && compinit -C
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' use-cache on
+
+# Scripts folder
+export PATH="$HOME/Scripts:$PATH"
+
+# --- History (shared across tabs, big, de-duped) ---
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt APPEND_HISTORY SHARE_HISTORY INC_APPEND_HISTORY_TIME HIST_IGNORE_DUPS HIST_VERIFY
+
+# --- Shell behavior (ergonomics & safety) ---
+setopt AUTO_CD            # 'cd' by just typing a folder name
+setopt EXTENDED_GLOB
+setopt INTERACTIVE_COMMENTS
+setopt NO_BEEP
+setopt NO_CLOBBER         # prevent '>' from overwriting files; use '>|' to force
+setopt CORRECT            # typo suggestions for commands (comment out if annoying)
+setopt NO_NOMATCH         # don't error on unmatched globs
+
+# --- Aliases (sane defaults) ---
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ll='ls -alh'
+alias la='ls -A'
+alias grep='grep --color=auto'
+alias c='clear'
+alias reload='exec zsh'
+alias week='date +%G-W%V'
+
+alias ez='code ~/.zshrc'
+alias ef='code ~/.finicky.js'
+alias es='code ~/Scripts'
+
+# Homebrew helpers
+alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup'
+
+# --- Small, useful functions ---
+# Show Hardware Port name, device, IPv4 (skips loopback & link-local unless -a)
+ip() {
+  local include_all=false
+  [[ "$1" == "-a" ]] && include_all=true
+
+  typeset -A port_for_device
+  local line name dev
+  while IFS= read -r line; do
+    case "$line" in
+      "Hardware Port:"*) name=${line#Hardware Port: } ;;
+      "Device:"*) dev=${line#Device: }; port_for_device[$dev]="$name" ;;
+    esac
+  done < <(networksetup -listallhardwareports)
+
+  local ip
+  for dev in ${(k)port_for_device}; do
+    ip=$(ipconfig getifaddr "$dev" 2>/dev/null) || continue
+    if ! $include_all; then
+      [[ "$ip" == 127.* || "$ip" == 169.254.* ]] && continue
+    fi
+    printf "%-20s %-10s %s\n" "${port_for_device[$dev]}" "$dev" "$ip"
+  done | sort
+}
+
+# Unpacks a single archive into the current folder based on its extension
+extract() { case "$1" in
+  *.tar.bz2) tar xjf "$1" ;; *.tar.gz) tar xzf "$1" ;; *.tar.xz) tar xJf "$1" ;;
+  *.zip) unzip "$1" ;; *.rar) unrar x "$1" ;; *) echo "don't know '$1'";; esac }
+
+# --- Editor & locale ---
+# Use VS Code for CLI edits (waits until file is closed)
+export EDITOR="code -w"
+export VISUAL="$EDITOR"
+
+# export EDITOR="nano"
+# export VISUAL="$EDITOR"
+export PAGER="less -R"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
