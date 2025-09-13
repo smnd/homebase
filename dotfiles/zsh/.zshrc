@@ -31,7 +31,7 @@ setopt NO_CLOBBER         # prevent '>' from overwriting files; use '>|' to forc
 setopt CORRECT            # typo suggestions for commands (comment out if annoying)
 setopt NO_NOMATCH         # don't error on unmatched globs
 
-# --- Aliases (sane defaults) ---
+# --- Aliases ---
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ll='ls -alh'
@@ -46,7 +46,15 @@ alias ef='code ~/.finicky.js'
 alias es='code ~/Scripts'
 alias codext='code --list-extensions > ~/dev/homebase/vscode/extensions.txt'
 
-# Homebrew helpers
+# # Homebrew helpers
+# List all casks that are outdated like a "dry-run" (and which have version marked as 'latest')
+# alias bcg='brew outdated --greedy'  
+
+# Upgrades all casks that are outdated (and which have version marked as 'latest')
+# alias bcug='brew upgrade --greedy'
+
+# Upgrades and cleans up all regular outdated casks and libs (non-greedy)
+# alias bupc='brew bundle check || brew bundle --all --cleanup || true; brew bundle cleanup -f || true; brew cleanup --prune=all || true; brew autoremove || true; brew upgrade || true'
 alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup'
 
 # Python helpers
