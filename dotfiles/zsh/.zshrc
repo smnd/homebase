@@ -41,11 +41,15 @@ alias week='date +%G-W%V'
 alias ez='code ~/.zshrc'
 alias ef='code ~/.finicky.js'
 alias es='code ~/Scripts'
+alias codext='code --list-extensions > ~/dev/homebase/vscode/extensions.txt'
 
 # Homebrew helpers
 alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup'
 
 # --- Small, useful functions ---
+# Simple helper: make a file executable
+mkexec() { chmod +x "$1"; }
+
 # Show Hardware Port name, device, IPv4 (skips loopback & link-local unless -a)
 ip() {
   local include_all=false

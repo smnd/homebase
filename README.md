@@ -17,8 +17,10 @@ My Mac setup: configs (dotfiles) and local scripts.
 
 3) In VS Code: Cmd+Shift+P → “Shell Command: Install 'code' in PATH”
 
-4) Put files in place:
+4) Install extensions on a new Mac `xargs -n1 code --install-extension < vscode/extensions.txt`
+
+5) Put files in place:
    stow -t "$HOME" dotfiles/zsh dotfiles/finicky dotfiles/git dotfiles/ssh dotfiles/code
    mkdir -p "$HOME/Scripts" && rsync -a scripts/Scripts/ "$HOME/Scripts/"
 
-5) Open a new Terminal (or run: source ~/.zshrc)
+6) Open a new Terminal (or run: source ~/.zshrc)
