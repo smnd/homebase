@@ -49,6 +49,7 @@ cask "tailscale-app"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "font-jetbrains-mono"
 
 # ---------- App Store apps (mas)
 brew "mas"
@@ -58,6 +59,20 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PDFgear", id: 6469021132
 mas "Things", id: 904280696
+
+# ---------- Dev/runtime (keep light) ----------
+brew "python@3.13"
+# brew "pipx"          # isolated Python CLIs
+# brew "node"
+# brew "pnpm"
+# brew "direnv"        # per-folder envs
+# brew "gh"            # GitHub CLI
+# brew "httpie"
+
+# ---------- Media & data helpers ----------
+# brew "ffmpeg"
+# brew "imagemagick"
+# brew "exiftool"
 
 # ---------- VS Code extensions
 vscode "davidanson.vscode-markdownlint"

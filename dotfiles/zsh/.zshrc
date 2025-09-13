@@ -46,6 +46,16 @@ alias codext='code --list-extensions > ~/dev/homebase/vscode/extensions.txt'
 # Homebrew helpers
 alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup'
 
+# Python helpers
+alias py='python3'
+
+mkvenv() {
+  python3 -m venv .venv && source .venv/bin/activate && python -m pip install --upgrade pip
+}
+workon() { 
+  test -f .venv/bin/activate && source .venv/bin/activate || echo "No .venv here"; 
+}
+
 # --- Small, useful functions ---
 # Simple helper: make a file executable
 mkexec() { chmod +x "$1"; }

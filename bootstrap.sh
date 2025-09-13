@@ -1,5 +1,9 @@
+# DO NOT USE WIHOUT CHECKING. THIS MAY NOT WORK.
 #!/usr/bin/env bash
 set -euo pipefail
+
+mkdir -p "$HOME/dev/homebase" && cd "$HOME/dev/homebase"
+git clone https://github.com/smnd/homebase.git 
 
 # 1) Xcode CLT (prompts if needed)
 xcode-select -p >/dev/null 2>&1 || xcode-select --install || true
@@ -7,7 +11,7 @@ xcode-select -p >/dev/null 2>&1 || xcode-select --install || true
 # 2) Homebrew
 if ! command -v brew >/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -33,6 +37,6 @@ HOST_DIR="hosts/$(scutil --get ComputerName 2>/dev/null || hostname)"
 [ -d "$HOST_DIR" ] && stow -t "$HOME" "$HOST_DIR"
 
 # 8) VS Code extensions
-[ -f vscode/extensions.txt ] && xargs -n1 code --install-extension < vscode/extensions.txt || true
+[ -f vscode/extensions.txt ] && xargs -n1 code --install-extension <vscode/extensions.txt || true
 
 echo "✅ Done. Restart Terminal or run: source ~/.zshrc"
