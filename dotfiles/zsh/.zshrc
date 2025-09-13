@@ -115,3 +115,6 @@ export LC_ALL="en_US.UTF-8"
 
 # Created by `pipx` on 2025-09-13 03:25:07
 export PATH="$PATH:/Users/suman/.local/bin"
+
+eval "$(starship init zsh)"
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

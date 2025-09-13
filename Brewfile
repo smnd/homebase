@@ -1,17 +1,26 @@
+# reference: https://github.com/vraravam/dotfiles/blob/4dfa90c0846c25b3e08ad660624c3c36f871e3c1/files/--HOME--/Brewfile#L8-L10
+
 # Taps (sources)
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 
-# Install apps in /Applications
-cask_args appdir: "/Applications"
+# global preferences for all 'brew install' commands
+cask_args appdir: '/Applications', fontdir: '/Library/Fonts', no_quarantine: true, adopt: true
 
-# ---------- CLI essentials 
-brew "git"
-brew "stow"          # manage dotfiles via symlinks
-brew "rsync"
-brew "gh"
+# formulae pulled in from homebrew to replace system equivalents to fix any security issues since the OS was released
+brew 'bash'
+brew 'curl'
+brew 'git'
+brew 'less'
+brew 'rsync'
+brew 'wget'
+brew 'zsh'
+
+brew 'gh'
+brew 'starship'
+
 # brew "zsh"
 # brew "coreutils"
 # brew "findutils"
@@ -27,8 +36,11 @@ brew "gh"
 # brew "wget"
 # brew "gnupg"
 
-# ---------- Desktop apps (casks) 
+# install most essential apps directly 
+
 cask "1password"
+cask "raycast"
+cask "visual-studio-code"
 cask "carbon-copy-cloner"
 cask "connectmenow"
 cask "expressvpn"
@@ -41,38 +53,35 @@ cask "keyboardcleantool"
 cask "latest"
 cask "notion"
 cask "obsidian"
-cask "raycast"
 cask "shottr"
 cask "spotify"
 cask "stay"
 cask "tailscale-app"
-cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
-cask "font-jetbrains-mono"
 
-# ---------- App Store apps (mas)
-brew "mas"
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "PDFgear", id: 6469021132
-mas "Things", id: 904280696
+# install Mac App Store apps via `mas`
+brew 'mas'
+mas 'PDFgear', id: 6469021132
+mas 'Things', id: 904280696
 
-# ---------- Dev/runtime (keep light) ----------
+# install dev tools and runtimes
 brew "python@3.13"
-# brew "pipx"          # isolated Python CLIs
+brew "pipx"          # isolated Python CLIs
 # brew "node"
 # brew "pnpm"
 # brew "direnv"        # per-folder envs
 # brew "gh"            # GitHub CLI
 # brew "httpie"
 
-# ---------- Media & data helpers ----------
+# media manipulation tools 
 # brew "ffmpeg"
 # brew "imagemagick"
 # brew "exiftool"
+
+# fonts for the terminal and code editors
+brew "font-jetbrains-mono"
+brew "font-fira-code-nerd-font"
 
 # ---------- VS Code extensions
 vscode "davidanson.vscode-markdownlint"
