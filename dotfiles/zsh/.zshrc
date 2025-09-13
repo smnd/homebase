@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# shellcheck disable=all
+
 # --- Homebrew (Apple Silicon) ---
 if command -v brew >/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -76,7 +79,9 @@ ip() {
 
   local ip
   for dev in ${(k)port_for_device}; do
-    ip=$(ipconfig getifaddr "$dev" 2>/dev/null) || continue
+    if ! ip=$(ipconfig getifaddr "$dev" 2>/dev/null); then
+      continue
+    fi
     if ! $include_all; then
       [[ "$ip" == 127.* || "$ip" == 169.254.* ]] && continue
     fi
@@ -99,3 +104,6 @@ export VISUAL="$EDITOR"
 export PAGER="less -R"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+
+# Created by `pipx` on 2025-09-13 03:25:07
+export PATH="$PATH:/Users/suman/.local/bin"
