@@ -46,6 +46,8 @@ alias ef='code ~/.finicky.js'
 alias es='code ~/Scripts'
 alias codext='code --list-extensions > ~/dev/homebase/vscode/extensions.txt'
 
+alias watchlist='py mas-watchlist-parser.py --config mas-watchlist-config.json --project-root .'
+
 # # Homebrew helpers
 # List all casks that are outdated like a "dry-run" (and which have version marked as 'latest')
 # alias bcg='brew outdated --greedy'  
@@ -118,3 +120,4 @@ export PATH="$PATH:/Users/suman/.local/bin"
 
 eval "$(starship init zsh)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
