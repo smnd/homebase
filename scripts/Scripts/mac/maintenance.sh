@@ -20,7 +20,7 @@ fail()  { printf "[%s] ❌ %s\n" "$(timestamp)" "$*"; }
 
 # ---------- Options ----------
 AUTO=0
-DO_QUIT=1
+DO_QUIT=0
 DO_OS=1
 DO_APPSTORE=1
 DO_BREW=1
