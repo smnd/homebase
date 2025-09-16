@@ -1,5 +1,5 @@
-# DO NOT USE WIHOUT CHECKING. THIS MAY NOT WORK.
 #!/usr/bin/env bash
+# DO NOT USE WIHOUT CHECKING. THIS MAY NOT WORK.
 set -euo pipefail
 
 mkdir -p "$HOME/dev/homebase" && cd "$HOME/dev/homebase"
