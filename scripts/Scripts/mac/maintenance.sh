@@ -1,4 +1,5 @@
 #!/bin/zsh
+# shellcheck disable=SC1071
 # macOS Maintenance Script
 # Purpose: One-click (or scheduled) maintenance: quit apps, check OS & app updates, update Homebrew.
 # Usage:   ./maintenance.sh [--no-quit] [--no-os] [--no-appstore] [--no-brew] [--no-casks] [--no-clean]
