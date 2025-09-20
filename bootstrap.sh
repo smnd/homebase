@@ -15,6 +15,8 @@ if ! command -v brew >/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# xcode - accept license
+
 # 3) Tools + apps
 BREWFILE="$(dirname "$0")/Brewfile"
 read -r -p "Run 'brew bundle' to install tools/apps from ${BREWFILE}? [y/N]: " run_brew_bundle
