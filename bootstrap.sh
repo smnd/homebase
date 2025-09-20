@@ -3,11 +3,10 @@
 # Exit on error, unset variables, and failed pipes for safer script execution
 set -euo pipefail
 
-mkdir -p "$HOME/dev/homebase" && cd "$HOME/dev/homebase"
-git clone https://github.com/smnd/homebase.git 
-
 # 1) Xcode CLT (prompts if needed)
-xcode-select -p >/dev/null 2>&1 || xcode-select --install || true
+# xcode-select -p >/dev/null 2>&1 || xcode-select --install || true
+# mkdir -p "$HOME/dev/homebase" && cd "$HOME/dev/homebase"
+# git clone https://github.com/smnd/homebase.git 
 
 # 2) Homebrew
 if ! command -v brew >/dev/null; then
