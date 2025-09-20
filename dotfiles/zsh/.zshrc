@@ -6,6 +6,9 @@ if command -v brew >/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # --- Completions (fast & cached) ---
 autoload -Uz compinit && compinit -C
 zstyle ':completion:*' menu select

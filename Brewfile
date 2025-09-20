@@ -11,16 +11,14 @@ tap 'homebrew/core'
 cask_args appdir: '/Applications', fontdir: '/Library/Fonts', no_quarantine: true, adopt: true
 
 # formulae pulled in from homebrew to replace system equivalents to fix any security issues since the OS was released
-brew 'bash'
-brew 'curl'
-brew 'git'
-brew 'less'
-brew 'rsync'
-brew 'wget'
-brew 'zsh'
-
-brew 'gh'
-brew 'starship'
+brew "codex"
+brew "gh"
+brew "git"
+brew "mas"
+brew "rsync"
+brew "starship"
+brew "stow"
+brew "zsh-autosuggestions"
 
 # brew 'zsh'
 # brew 'coreutils'
@@ -37,35 +35,6 @@ brew 'starship'
 # brew 'wget'
 # brew 'gnupg'
 
-# install most essential apps directly 
-
-cask '1password'
-cask 'carbon-copy-cloner'
-cask 'connectmenow'
-cask 'expressvpn'
-cask 'figma'
-cask 'finicky'
-cask 'hiddenbar'
-cask 'istat-menus'
-cask 'iterm2'
-cask 'keyboardcleantool'
-cask 'latest'
-cask 'notion'
-cask 'obsidian'
-cask 'raycast'
-cask 'shottr'
-cask 'spotify'
-cask 'stay'
-cask 'tailscale-app'
-cask 'visual-studio-code'
-cask 'vlc'
-cask 'whatsapp'
-
-# install Mac App Store apps via `mas`
-brew 'mas'
-mas 'PDFgear', id: 6469021132
-mas 'Things', id: 904280696
-
 # install dev tools and runtimes
 brew 'python@3.13'
 brew 'pipx'          # isolated Python CLIs
@@ -80,29 +49,77 @@ brew 'pipx'          # isolated Python CLIs
 # brew 'imagemagick'
 # brew 'exiftool'
 
-# fonts for the terminal and code editors
-brew 'font-jetbrains-mono'
-brew 'font-fira-code-nerd-font'
+# Install most essential apps directly 
+cask "1password"
+cask "aldente"
+cask "betterdisplay"
+cask "carbon-copy-cloner"
+cask "chatgpt"
+cask "connectmenow"
+cask "expressvpn"
+cask "figma"
+cask "finicky"
+cask "fujifilm-x-raw-studio"
+cask "istat-menus"
+cask "iterm2"
+cask "jordanbaird-ice"
+cask "keyboardcleantool"
+cask "keyclu"
+cask "latest"
+cask "localsend"
+cask "losslesscut"
+cask "notion"
+cask "notunes"
+cask "obsidian"
+cask "onyx"
+cask "postman"
+cask "raycast"
+cask "shottr"
+cask "soundsource"
+cask "spotify"
+cask "stay"
+cask "tailscale-app"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
 
-# ---------- VS Code extensions
-vscode 'davidanson.vscode-markdownlint'
-vscode 'docker.docker'
-vscode 'dotjoshjohnson.xml'
-vscode 'ecmel.vscode-html-css'
-vscode 'github.copilot'
-vscode 'github.copilot-chat'
-vscode 'inferrinizzard.prettier-sql-vscode'
-vscode 'kevinrose.vsc-python-indent'
-vscode 'mechatroner.rainbow-csv'
-vscode 'ms-azuretools.vscode-containers'
-vscode 'ms-azuretools.vscode-docker'
-vscode 'ms-python.debugpy'
-vscode 'ms-python.isort'
-vscode 'ms-python.python'
-vscode 'ms-python.vscode-pylance'
-vscode 'ms-python.vscode-python-envs'
-vscode 'ms-vscode-remote.remote-ssh'
-vscode 'ms-vscode-remote.remote-ssh-edit'
-vscode 'ms-vscode.remote-explorer'
-vscode 'redhat.vscode-yaml'
-vscode 'yzhang.markdown-all-in-one'
+
+# install Mac App Store apps via `mas`
+# mas "iMovie", id: 408981434
+# mas "Keynote", id: 409183694
+# mas "Numbers", id: 409203825
+# mas "Pages", id: 409201541
+mas "PDFgear", id: 6469021132
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
+
+
+# fonts for the terminal and code editors
+cask 'font-jetbrains-mono'
+cask 'font-fira-code-nerd-font'
+
+# VS Code extensions
+vscode "davidanson.vscode-markdownlint"
+vscode "docker.docker"
+vscode "dotjoshjohnson.xml"
+vscode "ecmel.vscode-html-css"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "inferrinizzard.prettier-sql-vscode"
+vscode "kevinrose.vsc-python-indent"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.remote-explorer"
+vscode "openai.chatgpt"
+vscode "redhat.vscode-yaml"
+vscode "swiftlang.swift-vscode"
+vscode "timonwong.shellcheck"
+vscode "tomoki1207.pdf"
+vscode "yinfei.luahelper"
+vscode "yzhang.markdown-all-in-one"

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # DO NOT USE WIHOUT CHECKING. THIS MAY NOT WORK.
+# Exit on error, unset variables, and failed pipes for safer script execution
 set -euo pipefail
 
 mkdir -p "$HOME/dev/homebase" && cd "$HOME/dev/homebase"
@@ -16,18 +17,33 @@ if ! command -v brew >/dev/null; then
 fi
 
 # 3) Tools + apps
-brew bundle --file="$(dirname "$0")/Brewfile"
-brew install stow
+BREWFILE="$(dirname "$0")/Brewfile"
+read -r -p "Run 'brew bundle' to install tools/apps from ${BREWFILE}? [y/N]: " run_brew_bundle
+if [[ "${run_brew_bundle:-}" =~ ^[Yy]$ ]]; then
+  brew bundle --file="$BREWFILE"
+else
+  echo "Skipping brew bundle install."
+fi
 
 # 4) VS Code CLI (once): user must run in UI → Cmd+Shift+P → "Shell Command: Install 'code' in PATH"
 if ! command -v code >/dev/null; then
-  echo "Open VS Code → Cmd+Shift+P → Install 'code' command in PATH, then re-run this script."
-  exit 1
+  echo "Open VS Code → Cmd+Shift+P → Install 'code' command in PATH, continue this script."
+  read -r -p "Install 'code' command now and continue once it's available? [y/N]: " install_code_cli
+  if [[ ! "${install_code_cli:-}" =~ ^[Yy]$ ]]; then
+    echo "Exiting until 'code' command is installed."
+    exit 1
+  fi
+
+  if ! command -v code >/dev/null; then
+    echo "'code' command still missing; rerun this script after installation."
+    exit 1
+  fi
 fi
 
 # 5) Dotfiles via stow
 cd "$(dirname "$0")"
-stow -t "$HOME" dotfiles/zsh dotfiles/finicky dotfiles/git dotfiles/code scripts
+stow -t "$HOME" dotfiles/zsh dotfiles/finicky scripts
+# dotfiles/git dotfiles/code
 
 # 6) Permissions
 chmod -R u+x "$HOME/Scripts" 2>/dev/null || true
