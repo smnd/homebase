@@ -39,7 +39,7 @@ if ! command -v code >/dev/null; then
   fi
 fi
 
-# 5) Dotfiles via stow
+# 5) Dotfiles via stow - this doestn't work with /
 cd "$(dirname "$0")"
 stow -t "$HOME" dotfiles/zsh dotfiles/finicky scripts
 # dotfiles/git dotfiles/code
