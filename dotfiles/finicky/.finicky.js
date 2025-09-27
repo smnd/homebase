@@ -23,7 +23,7 @@ export default {
         },
         {
             match: finicky.matchHostnames(['teams.microsoft.com']),
-            browser: 'com.microsoft.teams',
+            browser: 'com.microsoft.teams2',
             url: ({ url }) =>
                 ({ ...url, protocol: 'msteams' }),
         },
@@ -36,9 +36,7 @@ export default {
             ],
             browser: {
                 name: "Dia",
-                appType: "appName",
                 profile: "Profile 1",
-                openInBackground: true,
             },
         }
     ],
