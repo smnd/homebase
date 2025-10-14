@@ -1,6 +1,6 @@
 export default {
     defaultBrowser: {
-        name: "Dia",
+        name: "Comet",
         profile: "Default"
     }, // Personal
     handlers: [
@@ -14,7 +14,7 @@ export default {
             browser: "Notion"
         },
         {
-            match: finicky.matchDomains("open.spotify.com"),
+            match: finicky.matchHostnames("open.spotify.com"),
             browser: "Spotify"
         },
         {
@@ -27,37 +27,37 @@ export default {
             url: ({ url }) =>
                 ({ ...url, protocol: 'msteams' }),
         },
+        {
+            match: finicky.matchHostnames(["access.myfave.com*"]),
+            browser: 'company.thebrowser.dia'
+        },
 
         // Route URLs to specific browser:profiles
         {
-            match: [
-                "*.atlassian.net/*",
-                "*.atlassian.com/*",
-            ],
+            match: finicky.matchHostnames(['*.sharepoint.com/*']),
             browser: {
                 name: "Dia",
-                profile: "Profile 1",
             },
+            rewrite: [{
+                match: ({
+                    url
+                }) => url.host.includes("zoom.us") && url.pathname.includes("/j/"),
+                url({
+                    url
+                }) {
+                    try {
+                        var pass = '&pwd=' + url.search.match(/pwd=(\w*)/)[1];
+                    } catch {
+                        var pass = ""
+                    }
+                    var conf = 'confno=' + url.pathname.match(/\/j\/(\d+)/)[1];
+                    return {
+                        search: conf + pass,
+                        pathname: '/join',
+                        protocol: "zoommtg"
+                    }
+                }
+            }]
         }
-    ],
-    rewrite: [{
-        match: ({
-            url
-        }) => url.host.includes("zoom.us") && url.pathname.includes("/j/"),
-        url({
-            url
-        }) {
-            try {
-                var pass = '&pwd=' + url.search.match(/pwd=(\w*)/)[1];
-            } catch {
-                var pass = ""
-            }
-            var conf = 'confno=' + url.pathname.match(/\/j\/(\d+)/)[1];
-            return {
-                search: conf + pass,
-                pathname: '/join',
-                protocol: "zoommtg"
-            }
-        }
-    }]
+    ]
 };
