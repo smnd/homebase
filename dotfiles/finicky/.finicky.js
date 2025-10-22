@@ -1,6 +1,6 @@
 export default {
     defaultBrowser: {
-        name: "Comet",
+        name: "Dia",
         profile: "Default"
     }, // Personal
     handlers: [

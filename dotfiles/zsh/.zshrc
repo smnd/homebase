@@ -60,7 +60,7 @@ alias watchlist='py mas-watchlist-parser.py --config mas-watchlist-config.json -
 
 # Upgrades and cleans up all regular outdated casks and libs (non-greedy)
 # alias bupc='brew bundle check || brew bundle --all --cleanup || true; brew bundle cleanup -f || true; brew cleanup --prune=all || true; brew autoremove || true; brew upgrade || true'
-alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup'
+alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor'
 
 # Python helpers
 alias py='python3'
