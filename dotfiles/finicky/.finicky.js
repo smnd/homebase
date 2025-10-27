@@ -1,12 +1,12 @@
 export default {
     defaultBrowser: {
-        name: "Comet",
-        profile: "Default"
+        name: "Google Chrome",
+        profile: "Suman"
     }, // Personal
     handlers: [
         // Open links directly in supported apps
         {
-            match: ["*.figma.com/file/*", "*.figma.com/deck/*", "*.figma.com/proto/*"],
+            match: ["*.figma.com/file/*", "*.figma.com/deck/*", "*.figma.com/proto/*", "*.figma.com/design/*"],
             browser: "Figma",
         },
         {
@@ -28,36 +28,17 @@ export default {
                 ({ ...url, protocol: 'msteams' }),
         },
         {
-            match: finicky.matchHostnames(["access.myfave.com*"]),
-            browser: 'company.thebrowser.dia'
-        },
-
-        // Route URLs to specific browser:profiles
-        {
-            match: finicky.matchHostnames(['*.sharepoint.com/*']),
-            browser: {
-                name: "Dia",
-            },
-            rewrite: [{
-                match: ({
-                    url
-                }) => url.host.includes("zoom.us") && url.pathname.includes("/j/"),
-                url({
-                    url
-                }) {
-                    try {
-                        var pass = '&pwd=' + url.search.match(/pwd=(\w*)/)[1];
-                    } catch {
-                        var pass = ""
-                    }
-                    var conf = 'confno=' + url.pathname.match(/\/j\/(\d+)/)[1];
-                    return {
-                        search: conf + pass,
-                        pathname: '/join',
-                        protocol: "zoommtg"
-                    }
-                }
-            }]
+            // Work links
+            match: [
+                "*.myfave.com/*", 
+                "*.sharepoint.com/*", 
+                "*.atlassian.net/*",
+                "*.turbohire.co/*",
+                "mobbin.com/*",
+                "click.figma.com/*",
+                "*.datadoghq.com/*"
+            ],
+            browser: "Google Chrome:Work"
         }
     ]
 };

@@ -17,7 +17,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
 
 # Scripts folder
-export PATH="$HOME/Scripts:/opt/homebrew/opt/ruby@3.3/bin:$PATH"
+export PATH="$HOME/Scripts:$PATH"
 
 # --- History (shared across tabs, big, de-duped) ---
 HISTFILE=~/.zsh_history
@@ -43,6 +43,8 @@ alias grep='grep --color=auto'
 alias c='clear'
 alias reload='exec zsh'
 alias week='date +%G-W%V'
+
+alias dev='cd ~/dev && clear'
 
 alias ez='code ~/.zshrc'
 alias ef='code ~/.finicky.js'
