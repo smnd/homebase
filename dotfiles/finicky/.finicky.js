@@ -36,7 +36,9 @@ export default {
                 "*.turbohire.co/*",
                 "mobbin.com/*",
                 "click.figma.com/*",
-                "*.datadoghq.com/*"
+                "*.datadoghq.com/*",
+                "*.clevertap.com/*",
+                "*.databricks.com/*"
             ],
             browser: "Google Chrome:Work"
         }

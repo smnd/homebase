@@ -1,0 +1,266 @@
+square: false
+type: grid
+cards:
+  - type: heading
+    heading_style: title
+    heading: Synology NAS
+    badges:
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_temperature
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: mdi:thermometer
+      - type: entity
+        show_state: true
+        show_icon: false
+        entity: sensor.nas_cpu_utilization_total
+        color: state
+        tap_action:
+          action: more-info
+        icon: mdi:cpu-64-bit
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_memory_usage_real
+        color: blue
+        tap_action:
+          action: more-info
+        icon: mdi:memory-arrow-down
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_security_status
+        tap_action:
+          action: more-info
+        color: state
+    icon: ""
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: sensor.nas_download_throughput
+        name: Inbound
+        color: red
+      - type: tile
+        entity: sensor.nas_upload_throughput
+        name: Outbound
+        color: green
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - graph: line
+            type: sensor
+            entity: sensor.nas_vol1_used_space
+            name: Volume 1 (HDD)
+            detail: 1
+          - type: heading
+            heading_style: title
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: sensor.nas_vol1_used_space
+                color: cyan
+                tap_action:
+                  action: more-info
+                icon: mdi:harddisk
+              - type: entity
+                show_state: true
+                show_icon: true
+                color: cyan
+                entity: sensor.nas_vol1_volume_used
+                tap_action:
+                  action: more-info
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: sensor.nas_vol1_status
+                tap_action:
+                  action: more-info
+                color: state
+            icon: ""
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - graph: line
+            type: sensor
+            entity: sensor.nas_vol2_used_space
+            name: Volume 2 (SSD)
+            detail: 1
+          - type: heading
+            heading_style: title
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: sensor.nas_vol2_used_space
+                color: cyan
+                tap_action:
+                  action: more-info
+                icon: mdi:harddisk
+              - type: entity
+                show_state: true
+                show_icon: true
+                color: cyan
+                entity: sensor.nas_vol2_volume_used
+                tap_action:
+                  action: more-info
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: sensor.nas_vol2_status
+                tap_action:
+                  action: more-info
+                color: state
+            icon: ""
+  - type: heading
+    icon: mdi:harddisk
+    heading: Drive 1
+    heading_style: subtitle
+    badges:
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_d1_temperature
+        color: red
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_d1_exceeded_max_bad_sectors
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_d1_below_min_remaining_life
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_d1_status
+        tap_action:
+          action: more-info
+        color: state
+  - type: heading
+    icon: mdi:harddisk
+    heading: Drive 2
+    heading_style: subtitle
+    badges:
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_d2_temperature
+        color: red
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_d2_exceeded_max_bad_sectors
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_d2_below_min_remaining_life
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_d2_status
+        tap_action:
+          action: more-info
+        color: state
+  - type: heading
+    icon: mdi:harddisk
+    heading: Drive 3
+    heading_style: subtitle
+    badges:
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_d3_temperature
+        color: red
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_d3_exceeded_max_bad_sectors
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_d3_below_min_remaining_life
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_d3_status
+        tap_action:
+          action: more-info
+        color: state
+  - type: heading
+    icon: mdi:harddisk
+    heading: SSD 1
+    heading_style: subtitle
+    badges:
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_ssd1_temperature
+        color: red
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_ssd1_exceeded_max_bad_sectors
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: binary_sensor.nas_ssd1_below_min_remaining_life
+        color: cyan
+        tap_action:
+          action: more-info
+        icon: ""
+      - type: entity
+        show_state: true
+        show_icon: true
+        entity: sensor.nas_ssd1_status
+        tap_action:
+          action: more-info
+        color: state
+  - type: vertical-stack
+    cards: []
+columns: 1

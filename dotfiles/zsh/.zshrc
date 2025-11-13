@@ -6,6 +6,18 @@ if command -v brew >/dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# Ruby
+if [ -d "/opt/homebrew/opt/ruby@3.3/bin" ]; then
+  export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"
+  export PATH="$(gem environment gemdir)/bin:$PATH"
+fi
+
+# Python (replace python@3.12 if needed)
+if [ -d "/opt/homebrew/opt/python@3.13/libexec/bin" ]; then
+  export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
+fi
+
+
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
