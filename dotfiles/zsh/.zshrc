@@ -74,7 +74,7 @@ alias watchlist='py mas-watchlist-parser.py --config mas-watchlist-config.json -
 
 # Upgrades and cleans up all regular outdated casks and libs (non-greedy)
 # alias bupc='brew bundle check || brew bundle --all --cleanup || true; brew bundle cleanup -f || true; brew cleanup --prune=all || true; brew autoremove || true; brew upgrade || true'
-alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup'
+alias brewup='brew update && brew upgrade --greedy -v && brew autoremove -v && brew cleanup --prune=all && brew doctor'
 
 # Python helpers
 alias py='python3'
@@ -138,3 +138,7 @@ export PATH="$PATH:/Users/suman/.local/bin"
 eval "$(starship init zsh)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/suman/.lmstudio/bin"
+# End of LM Studio CLI section
+
