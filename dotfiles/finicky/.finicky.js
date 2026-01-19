@@ -1,12 +1,20 @@
 export default {
-    defaultBrowser: {
-        name: "Dia",
-        profile: "Default"
-    }, // Personal
+    defaultBrowser: "Google Chrome:Suman",
+    options: {
+        // Check for updates. Default: true
+        checkForUpdates: false,
+        // Log every request to file. Default: false
+        logRequests: false,
+        // Keep Finicky running in the background
+        keepRunning: true,
+        // Hide the Finicky icon from the menu bar
+        hideIcon: true
+    },
+    // Personal
     handlers: [
         // Open links directly in supported apps
         {
-            match: ["*.figma.com/file/*", "*.figma.com/deck/*", "*.figma.com/proto/*"],
+            match: ["*.figma.com/file/*", "*.figma.com/deck/*", "*.figma.com/proto/*", "*.figma.com/design/*", "*.figma.com/*"],
             browser: "Figma",
         },
         {
@@ -28,36 +36,25 @@ export default {
                 ({ ...url, protocol: 'msteams' }),
         },
         {
-            match: finicky.matchHostnames(["access.myfave.com*"]),
-            browser: 'company.thebrowser.dia'
-        },
-
-        // Route URLs to specific browser:profiles
-        {
-            match: finicky.matchHostnames(['*.sharepoint.com/*']),
-            browser: {
-                name: "Dia",
-            },
-            rewrite: [{
-                match: ({
-                    url
-                }) => url.host.includes("zoom.us") && url.pathname.includes("/j/"),
-                url({
-                    url
-                }) {
-                    try {
-                        var pass = '&pwd=' + url.search.match(/pwd=(\w*)/)[1];
-                    } catch {
-                        var pass = ""
-                    }
-                    var conf = 'confno=' + url.pathname.match(/\/j\/(\d+)/)[1];
-                    return {
-                        search: conf + pass,
-                        pathname: '/join',
-                        protocol: "zoommtg"
-                    }
-                }
-            }]
+            match:
+                [
+                "*.myfave.com/*",
+                "*.sharepoint.com/*",
+                "*.atlassian.net/*",
+                "*.turbohire.co/*",
+                "mobbin.com/*",
+                "click.figma.com/*",
+                "*.datadoghq.com/*",
+                "*.clevertap.com/*",
+                "*.woohoo.com/*",
+                "*.woohoo.in/*",
+                "*.darwinbox.com/*",
+                "analytics.google.com/*",
+                "notifications.googleapis.com/*",
+                "outlook.office365.com/*",
+                "https://*.google.com/*"
+                ],
+            browser: "Google Chrome:Work"
         }
     ]
 };

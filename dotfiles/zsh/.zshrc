@@ -17,7 +17,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
 
 # Scripts folder
-export PATH="$HOME/Scripts:/opt/homebrew/opt/ruby@3.3/bin:$PATH"
+export PATH="$HOME/Scripts:/opt/homebrew/opt/ruby@3.3/bin:/opt/homebrew/bin/python3:$PATH"
 
 # --- History (shared across tabs, big, de-duped) ---
 HISTFILE=~/.zsh_history
@@ -53,14 +53,14 @@ alias watchlist='py mas-watchlist-parser.py --config mas-watchlist-config.json -
 
 # # Homebrew helpers
 # List all casks that are outdated like a "dry-run" (and which have version marked as 'latest')
-# alias bcg='brew outdated --greedy'  
+alias bcg='brew outdated --greedy'
 
 # Upgrades all casks that are outdated (and which have version marked as 'latest')
 # alias bcug='brew upgrade --greedy'
 
 # Upgrades and cleans up all regular outdated casks and libs (non-greedy)
 # alias bupc='brew bundle check || brew bundle --all --cleanup || true; brew bundle cleanup -f || true; brew cleanup --prune=all || true; brew autoremove || true; brew upgrade || true'
-alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor'
+alias brewup='brew update && brew upgrade --greedy && brew autoremove && brew cleanup --prune=all && brew doctor'
 
 # Python helpers
 alias py='python3'
@@ -69,7 +69,7 @@ mkvenv() {
   python3 -m venv .venv && source .venv/bin/activate && python -m pip install --upgrade pip
 }
 workon() { 
-  test -f .venv/bin/activate && source .venv/bin/activate || echo "No .venv here"; 
+  test -f .venv/bin/activate && source .venv/bin/activate || echo "No .venv here";
 }
 
 # --- Small, useful functions ---
@@ -124,3 +124,11 @@ export PATH="$PATH:/Users/suman/.local/bin"
 eval "$(starship init zsh)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Created by `pipx` on 2025-10-23 03:38:48
+export PATH="$PATH:/Users/suman.de/.local/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/suman.de/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/suman.de/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/suman.de/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/suman.de/google-cloud-sdk/completion.zsh.inc'; fi
