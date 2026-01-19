@@ -126,9 +126,3 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # Created by `pipx` on 2025-10-23 03:38:48
 export PATH="$PATH:/Users/suman.de/.local/bin"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/suman.de/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/suman.de/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/suman.de/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/suman.de/google-cloud-sdk/completion.zsh.inc'; fi
