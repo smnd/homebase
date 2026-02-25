@@ -15,8 +15,8 @@ fi
 
 if [[ "$url" == *"claude.ai/chat"* ]]; then
   echo -n "[Claude]($url)" | pbcopy
-elif [[ "$url" == *"linear.app"* ]]; then
-  echo -n "[Linear]($url)" | pbcopy
+elif [[ "$url" == *"gemini.google.com/app"* ]]; then
+  echo -n "[Gemini]($url)" | pbcopy
 elif [[ "$url" == *"figma.com"* ]]; then
   echo -n "[Figma]($url)" | pbcopy
 fi
