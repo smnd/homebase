@@ -30,6 +30,7 @@ zstyle ':completion:*' use-cache on
 
 # Scripts folder
 export PATH="$HOME/Scripts:$PATH"
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 # --- History (shared across tabs, big, de-duped) ---
 HISTFILE=~/.zsh_history
@@ -47,6 +48,8 @@ setopt CORRECT            # typo suggestions for commands (comment out if annoyi
 setopt NO_NOMATCH         # don't error on unmatched globs
 
 # --- Aliases ---
+alias obsidian='Obsidian'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ll='ls -alh'

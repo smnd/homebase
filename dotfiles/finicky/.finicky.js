@@ -6,7 +6,7 @@ export default {
     handlers: [
         // Open links directly in supported apps
         {
-            match: ["*.figma.com/file/*", "*.figma.com/deck/*", "*.figma.com/proto/*", "*.figma.com/design/*"],
+            match: ["*.figma.com/file/*", "*.figma.com/deck/*", "*.figma.com/proto/*", "*.figma.com/design/*", "*.figma.com/email/*"],
             browser: "Figma",
         },
         {
@@ -38,7 +38,8 @@ export default {
                 "click.figma.com/*",
                 "*.datadoghq.com/*",
                 "*.clevertap.com/*",
-                "*.databricks.com/*"
+                "*.databricks.com/*",
+                "*.pinelabs.com/*"
             ],
             browser: "Google Chrome:Work"
         }
