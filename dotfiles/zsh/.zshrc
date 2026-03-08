@@ -29,7 +29,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
 
 # Scripts folder
-export PATH="$HOME/Scripts:$PATH"
+export PATH="$HOME/Scripts:$HOME/dev/bin:$PATH"
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 # --- History (shared across tabs, big, de-duped) ---
