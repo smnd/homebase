@@ -52,8 +52,10 @@ export default {
                 "analytics.google.com/*",
                 "notifications.googleapis.com/*",
                 "outlook.office365.com/*",
-                "https://*.google.com/*",
-                "https://pay.weixin.qq.com/*"
+                "*.google.com/*",
+                "pay.weixin.qq.com/*",
+                "*.pinelabs.com/*",
+                "*.databricks.com/*"
                 ],
             browser: "Google Chrome:Work"
         }
