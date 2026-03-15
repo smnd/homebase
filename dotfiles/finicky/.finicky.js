@@ -39,7 +39,8 @@ export default {
                 "*.datadoghq.com/*",
                 "*.clevertap.com/*",
                 "*.databricks.com/*",
-                "*.pinelabs.com/*"
+                "*.pinelabs.com/*",
+                "*.darwinbox.com/*"
             ],
             browser: "Google Chrome:Work"
         }

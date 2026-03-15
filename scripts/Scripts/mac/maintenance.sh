@@ -158,6 +158,7 @@ update_homebrew() {
     info "Cleaning up old versions and unused deps..."
     brew autoremove || true
     brew cleanup -s || true
+    brew doctor || true
   fi
 
   ok "Homebrew maintenance complete."
