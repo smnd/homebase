@@ -40,7 +40,9 @@ export default {
                 "*.clevertap.com/*",
                 "*.databricks.com/*",
                 "*.pinelabs.com/*",
-                "*.darwinbox.com/*"
+                "*.darwinbox.com/*",
+                "*.woohoo.in/*",
+                "clarity.microsoft.com/*"
             ],
             browser: "Google Chrome:Work"
         }
