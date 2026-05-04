@@ -55,7 +55,8 @@ export default {
                 "*.google.com/*",
                 "pay.weixin.qq.com/*",
                 "*.pinelabs.com/*",
-                "*.databricks.com/*"
+                "*.databricks.com/*",
+                "*.branch.io/*"
                 ],
             browser: "Google Chrome:Work"
         }
