@@ -42,7 +42,8 @@ export default {
                 "*.pinelabs.com/*",
                 "*.darwinbox.com/*",
                 "*.woohoo.in/*",
-                "clarity.microsoft.com/*"
+                "clarity.microsoft.com/*",
+                "outlook.office365.com/*"
             ],
             browser: "Google Chrome:Work"
         }
