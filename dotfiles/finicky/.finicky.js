@@ -56,7 +56,9 @@ export default {
                 "pay.weixin.qq.com/*",
                 "*.pinelabs.com/*",
                 "*.databricks.com/*",
-                "*.branch.io/*"
+                "*.branch.io/*",
+                "*.openai.com/*",
+                "*.chatgpt.com/*"
                 ],
             browser: "Google Chrome:Work"
         }
