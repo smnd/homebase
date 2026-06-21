@@ -1,0 +1,29 @@
+name: Daily Quote of the Day
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 6am UTC every day
+  workflow_dispatch:     # Also allow manual triggers
+
+jobs:
+  quote:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate quote of the day
+        run: bash scripts/quote-of-day.sh
+
+      - name: Commit and push
+        run: |
+          git config user.name "Claude Code"
+          git config user.email "claude-code@anthropic.com"
+          if git diff --quiet QUOTE_OF_DAY.md; then
+            echo "No changes to quote"
+          else
+            git add QUOTE_OF_DAY.md
+            git commit -m "docs: update quote of the day"
+            git push
+          fi
