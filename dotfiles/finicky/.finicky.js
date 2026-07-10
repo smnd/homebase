@@ -43,7 +43,9 @@ export default {
                 "*.darwinbox.com/*",
                 "*.woohoo.in/*",
                 "clarity.microsoft.com/*",
-                "outlook.office365.com/*"
+                "outlook.office365.com/*",
+                "*.office.net/*",
+                "linear.app/*"
             ],
             browser: "Google Chrome:Work"
         }
