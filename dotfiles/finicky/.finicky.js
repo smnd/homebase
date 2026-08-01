@@ -45,7 +45,8 @@ export default {
                 "clarity.microsoft.com/*",
                 "outlook.office365.com/*",
                 "*.office.net/*",
-                "linear.app/*"
+                "linear.app/*",
+                "*.microsoft/*"
             ],
             browser: "Google Chrome:Work"
         }
