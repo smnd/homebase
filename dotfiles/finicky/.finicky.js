@@ -1,5 +1,5 @@
 export default {
-    defaultBrowser: "Google Chrome:Suman",
+    defaultBrowser: "Google Chrome:Work",
     options: {
         // Check for updates. Default: true
         checkForUpdates: false,
@@ -56,11 +56,27 @@ export default {
                 "pay.weixin.qq.com/*",
                 "*.pinelabs.com/*",
                 "*.databricks.com/*",
+                "*.office.net/*",
                 "*.branch.io/*",
                 "*.openai.com/*",
                 "*.chatgpt.com/*"
                 ],
             browser: "Google Chrome:Work"
+        },
+        {
+            match:
+                [
+                "*.fastmail.com/*",
+                "*.linkedin.com/*"
+                ],
+            browser: "Google Chrome:Suman"
+        },
+        {
+            match:
+                [
+                "*.google.com/o/saml2/*"
+                ],
+            browser: "Google Chrome:fave"
         }
     ]
 };
