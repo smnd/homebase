@@ -17,7 +17,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
 
 # Scripts folder
-export PATH="$HOME/Scripts:/opt/homebrew/opt/ruby@3.3/bin:/opt/homebrew/bin/python3:$PATH"
+export PATH="$HOME/Scripts:/opt/homebrew/opt/ruby@3.3/bin:/opt/homebrew/bin/python3:$HOME/dev/homebase/scripts/Scripts/gitlab:$PATH"
 
 # --- History (shared across tabs, big, de-duped) ---
 HISTFILE=~/.zsh_history
