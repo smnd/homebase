@@ -1,0 +1,9 @@
+# Quote of the Day
+
+**October 5, 2026**
+
+> "The only way to do great work is to love what you do." — Steve Jobs
+
+---
+
+*A reminder that passion and purpose drive excellence in everything we undertake.*
